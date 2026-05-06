@@ -2,7 +2,7 @@
   "name": "Native Speech",
   "short_name": "Native Speech",
   "description": "Онлайн обучение французскому и английскому языкам",
-  "start_url": "/",
+  "start_url": "https://student.native-speech.com/login",
   "display": "standalone",
   "background_color": "#FFD93D",
   "theme_color": "#1a1f5e",
