@@ -1,0 +1,566 @@
+:root {
+  --main-color: #023e8a;
+  --accent-color: #FFF3B9;
+  --accent-color2: #ffd966;
+  --bg-color: #f9f9f9;
+  --text-color: #555;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --radius: 12px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Общие стили */
+html {
+  font-size: 16px;
+}
+
+body {
+    overflow-x: hidden;
+  font-family: 'Segoe UI', sans-serif;
+  width: 100%;
+  padding-top: 45px;
+  margin: 0 auto;
+  color: var(--text-color);
+  background-color: var(--bg-color);
+  font-size: 16px;
+}
+
+.logo-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+
+.header-email {
+  font-size: 18px;
+  color: #234F9E;
+}
+
+.text-email {
+  font-size: 18px;
+  color: #234F9E;
+}
+
+.page1 {
+  color: var(--text-color);
+  margin-left: 2rem;
+  font-size: 21px;
+}
+
+/* ===== HEADER ===== */
+.header-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  color: #2E3192;
+  background-color: var(--bg-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+  height: 45px;
+  box-shadow: var(--shadow);
+}
+
+.logo {
+  height: 25px;
+  margin: 0;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left:auto;
+  margin-right: 1rem;
+  padding: 1rem;
+  gap: 1.5rem;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #2E3192;
+  font-size: 1.2rem;
+  font-weight: 400;
+}
+
+.nav a:hover {
+  font-weight: 500;
+}
+
+/* ===== LOGIN BUTTON ===== */
+.login-button-wrapper {
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+}
+
+.login-button {
+  position: relative;
+  z-index: 1;
+  padding: 0.1rem 0.5rem;
+  font-size: 0.9rem;
+  color: var(--text-color);
+  background-color: #FFF3B9;
+  border: 2px solid var(--main-color);
+  border-radius: 9999px;
+  cursor: pointer;
+  display: inline-block;
+  box-sizing: border-box;
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+  text-decoration: none;
+}
+
+.login-button-shadow {
+  position: absolute;
+  top: 1px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #023e8a;
+  border-radius: 9999px;
+  z-index: 0;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  box-sizing: border-box;
+}
+
+.login-button-wrapper:hover .login-button {
+  transform: translateY(-3px);
+}
+
+.login-button-wrapper:hover .login-button-shadow {
+  opacity: 1;
+}
+
+.login-button:active {
+  transform: scale(0.96);
+}
+
+/* ===== BURGER ===== */
+.burger {
+  display: none;
+  margin-left: 20px;
+  font-size: 2rem;
+  background: none;
+  cursor: pointer;
+  border: none;
+  font-family: sans-serif; /* ← добавь это */
+  color: var(--main-color); /* ← и цвет явно */
+}
+
+/* ===== HEADINGS ===== */
+h1 {
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: var(--main-color);
+  margin: 1.5rem 2rem 1rem 2rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--main-color);
+  margin: 1.5rem 2rem 1rem 2rem;
+}
+
+.highlight {
+  position: relative;
+  display: inline-block;
+  line-height: 3px;
+}
+
+.highlight::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -15px;
+  width: 100%;
+  height: 3px;
+  background-color: var(--accent-color2);
+  z-index: -1;
+  border-radius: 2px;
+}
+
+/* ===== IMAGES ===== */
+.desktop-image {
+  position: relative;
+  padding-top: 0;
+  width: 100%;
+  display: block;
+  margin: 0 auto;
+}
+
+.mobile-image {
+  display: none;
+  width: 100%;
+  padding-top: 0;
+  margin: 0 auto;
+}
+
+/* ===== COURSE CARDS ===== */
+.card-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+  padding: 1rem;
+  justify-items: center;
+}
+
+.course-card {
+  width: 100%;
+  max-width: 360px;
+  background: #fff;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.course-card:hover {
+  transform: translateY(-6px);
+}
+
+.course-card img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+}
+
+.course-card .content {
+  padding: 1.2rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.course-card h3 {
+  font-size: 1.6rem;
+  color: var(--main-color);
+}
+
+.course-card p {
+  font-size: 21px;
+  color: var(--text-color);
+  margin-bottom: 0.5rem;
+}
+
+.course-card .more {
+  font-size: 1.3rem;
+  color: var(--main-color);
+  text-decoration: underline;
+  cursor: pointer;
+  align-self: flex-start;
+}
+
+/* ===== BUTTON ===== */
+.btn {
+  position: relative;
+  padding: 12px 20px;
+  background: none;
+  color: var(--main-color);
+  border: 2px solid var(--main-color);
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 500;
+  overflow: hidden;
+  z-index: 0;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: var(--main-color);
+  transition: left 0.3s ease;
+  z-index: -1;
+}
+
+.btn:hover::before {
+  left: 0;
+}
+
+.btn:hover {
+  color: white;
+}
+
+/* ===== PAGE CONTENT ===== */
+.about-section {
+  padding: 5px;
+}
+
+.about-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+  align-items: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.about-inner.right {
+  grid-template-areas: "text image";
+}
+
+.about-inner.left {
+  grid-template-areas: "image text";
+}
+
+.about-image {
+  grid-area: image;
+  max-width: 100%;
+  background-color: #f9f9f9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-image img {
+  width: 100%;
+  max-width: 390px;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+.page1 li::marker {
+  color: var(--accent-color2);
+}
+
+.whatsapp-btn {
+  background-color: #25D366;
+  color: white;
+  border: none;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 15px;
+  line-height: 1.3;
+  text-decoration: none;
+  display: inline-block;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.whatsapp-btn:hover {
+  background-color: darkgreen;
+  color: white;
+}
+
+footer {
+  margin-top: 2rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  margin-bottom: 2rem;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.lang {
+  border-radius: 8px;
+}
+
+/* ===== MEDIA QUERIES (от большего к меньшему) ===== */
+
+@media (max-width: 1300px) {
+
+  .course-card {
+    width: 100%;
+    font-size: 21px;
+  }
+
+  .course-card h3 {
+    margin-bottom: 1rem;
+  }
+
+}
+@media (max-width: 768px) {
+     .header-email {
+    display: none;
+  }
+
+   .logo {
+    display: none;
+  }
+  .about-inner.right,
+  .about-inner.left {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "image"
+      "text";
+    gap: 18px;
+  }
+
+  .desktop-image {
+    display: none;
+  }
+
+  .mobile-image {
+    display: block;
+  }
+
+  .nav {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 50px;
+    right: 0.5rem;
+    background: white;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+    width: 180px;
+    border-radius: 12px;
+  }
+
+  .nav.show {
+    display: flex;
+  }
+
+  .burger {
+    display: block;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1001;
+  }
+}
+
+/* ===== FORM ===== */
+
+.form-card {
+  background: #fff;
+  padding: 20px 24px;
+  border-radius: 16px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+  width: 100%;
+  max-width: 500px;
+  margin: 20px auto;
+  transition: transform 0.3s ease;
+}
+
+.form-card:hover { transform: translateY(-3px); }
+
+.form-card h2 {
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 10px;
+  color: #555;
+  font-weight: 400;
+}
+
+/* ===== GROUP ===== */
+
+.form-group {
+  margin-bottom: 10px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 18px;
+  margin-bottom: 6px;
+  color: #555;
+}
+
+/* ===== INPUTS ===== */
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid #dce0e6;
+  border-radius: 10px;
+  font-size: 16px;
+  transition: all 0.2s;
+}
+
+/* placeholder */
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--main-color);
+  box-shadow: 0 0 0 2px rgba(47,111,237,0.15);
+  outline: none;
+}
+
+/* textarea */
+
+textarea {
+  resize: none;
+  height: 100px;
+}
+
+/* ===== BUTTON ===== */
+
+.button {
+  width: 100%;
+  padding: 16px;
+  border: none;
+  border-radius: 12px;
+  background: #FCE27E;
+  color: var(--text-color);
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.button:hover {
+  background: #FFD966;
+  transform: translateY(-1px);
+}
+
+/* ===== SMALL TEXT ===== */
+
+.small-text {
+  font-size: 17px;
+  color: #777;
+  text-align: center;
+  margin-top: 12px;
+}
+
+/* === Scroll animations === */
+.reveal {
+  opacity: 0;
+  transform: translateY(-40px);
+  transition: opacity 1.8s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 2.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+
+.reveal.visible {
+  opacity: 1;
+  transform: translate(0, 0) scale(1);
+}
+
+/* Задержки для карточек курсов */
+.course-card:nth-child(1) { transition-delay: 0s; }
+.course-card:nth-child(2) { transition-delay: 0.12s; }
+.course-card:nth-child(3) { transition-delay: 0.24s; }
+.course-card:nth-child(4) { transition-delay: 0.36s; }
+
+/* Задержки для элементов about */
+.about-inner .reveal:nth-child(1) { transition-delay: 0s; }
+.about-inner .reveal:nth-child(2) { transition-delay: 0.15s; }
+
+
+h1.reveal { transition-delay: 0s; }
+page1.reveal  { transition-delay: 0.25s; }
+
